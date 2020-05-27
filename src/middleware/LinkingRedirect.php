@@ -19,7 +19,7 @@ class LinkingRedirect
     {
         $current_url = Url::current();
         $link = Linking::where('from', $current_url)->first();
-        if($link->isNotEmpty()){
+        if($link != null){
             return redirect($link->to, 301);
         }
         return $next($request);
